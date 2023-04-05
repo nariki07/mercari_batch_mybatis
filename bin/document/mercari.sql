@@ -4,34 +4,20 @@
 -- RDBMS Type   : Oracle Database
 -- Application  : A5:SQL Mk-2
 
+-- category
+create table category (
+   id serial not null
+  , parent integer
+  , name character varying(255)
+  ,name_all character varying(255)
+  , constraint category_PKC primary key (id)
+) ;
 
--- big_category
-create table big_category(
-	id serial not null
-	, name character varying(255)
-	, constraint category_PKC primary key (id)
-)
+create unique index category_pki
+  on category(id);
 
-
--- medium_category
-create table medium_category(
-	id serial not null
-	, big_category_id integer
-	, name character varying(255)
-	, constraint medium_category_PKC primary key (id)
-	, FOREIGN KEY (big_category_id) REFERENCES big_category (id) on delete cascade
-)
-
--- small_category
-create table small_category(
-	id serial not null
-	, medium_category_id integer
-	, name character varying(255)
-	, name_all character varying(255)
-	, constraint small_category_PKC primary key (id)
-	, FOREIGN KEY (medium_category_id) REFERENCES medium_category (id) on delete cascade
-)
-
+create index parent_id_index
+  on category(parent);
 
 -- items
 create table items (
