@@ -6,7 +6,7 @@ package com.example.demo.domain;
  * @author moriharanariki
  *
  */
-public class original {
+public class Original {
 
 	/* ID */
 	private Integer id;
