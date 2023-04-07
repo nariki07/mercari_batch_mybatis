@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.demo.repository.ItemMapper">
 <insert id="insert">
-  Insert INTO item (id,name,condition_id,small_category_id,brand,price,shipping,description)
-  values (#{id},#{name},#{conditionId},#{smallCategoryId},#{brand},#{price},#{shipping},#{description})
+  Insert INTO items (name,condition_id,small_category_id,brand,price,shipping,description)
+  values (#{name},#{conditionId},#{smallCategoryId},#{brand},#{price},#{shipping},#{description})
 </insert>
 </mapper>
