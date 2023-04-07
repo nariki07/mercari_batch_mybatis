@@ -14,7 +14,10 @@ public class MediumCategory {
 	private Integer bigCategoryId;
 	/* カテゴリ名 */
 	private String name;
-
+	
+	public MediumCategory(){
+		
+	}
 	public Integer getId() {
 		return id;
 	}
