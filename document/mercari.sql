@@ -5,6 +5,13 @@
 -- Application  : A5:SQL Mk-2
 
 
+DROP TABLE big_category cascade;
+DROP TABLE medium_category cascade;
+DROP TABLE small_category;
+DROP TABLE original;
+DROP TABLE items;
+DROP TABLE users;
+
 -- big_category
 create table big_category(
 	id serial not null
@@ -37,8 +44,8 @@ create table small_category(
 create table items (
   id serial not null
   , name character varying(255)
-  , condition integer
-  , category integer
+  , condition_id integer
+  , small_category_id integer
   , brand character varying(255)
   , price double precision
   , shipping integer
@@ -49,8 +56,8 @@ create table items (
 create index items_brand_index
   on items(brand);
 
-create index items_category_index
-  on items(category);
+create index small_category_id_index
+  on items(small_category_id);
 
 create unique index items_pki
   on items(id);
@@ -86,17 +93,11 @@ create table users (
 create unique index users_pki
   on users(id);
 
-comment on table category is 'category';
-comment on column category.name_all is 'name_all';
-comment on column category.id is 'id';
-comment on column category.parent is 'parent';
-comment on column category.name is 'name';
-
 comment on table items is 'items';
 comment on column items.id is 'id';
 comment on column items.name is 'name';
-comment on column items.condition is 'condition';
-comment on column items.category is 'category';
+comment on column items.condition_id is 'condition_id';
+comment on column items.small_category_id is 'small_category_id';
 comment on column items.brand is 'brand';
 comment on column items.price is 'price';
 comment on column items.shipping is 'shipping';
