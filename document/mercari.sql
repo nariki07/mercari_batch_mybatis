@@ -10,7 +10,7 @@ create table big_category(
 	id serial not null
 	, name character varying(255)
 	, constraint category_PKC primary key (id)
-)
+);
 
 
 -- medium_category
@@ -20,7 +20,7 @@ create table medium_category(
 	, name character varying(255)
 	, constraint medium_category_PKC primary key (id)
 	, FOREIGN KEY (big_category_id) REFERENCES big_category (id) on delete cascade
-)
+);
 
 -- small_category
 create table small_category(
@@ -30,7 +30,7 @@ create table small_category(
 	, name_all character varying(255)
 	, constraint small_category_PKC primary key (id)
 	, FOREIGN KEY (medium_category_id) REFERENCES medium_category (id) on delete cascade
-)
+);
 
 
 -- items

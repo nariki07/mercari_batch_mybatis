@@ -13,7 +13,7 @@ public class BigCategory {
 	/* カテゴリ名 */
 	private String name;
 	
-	private BigCategory() {
+	public BigCategory() {
 		
 	}
 	
